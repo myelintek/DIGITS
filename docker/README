@@ -1,4 +1,4 @@
 
-nvidia-docker build -t digits:caffe .
+nvidia-docker build -t myelintek/digits:latest .
 
-nvidia-docker build --build-arg DIGITS_VERSION=v6.0.0 -t digits:v6.0.0 .
+nvidia-docker build --build-arg DIGITS_VERSION=v6.0.0 -t myelintek/digits:v6.0.0 .
