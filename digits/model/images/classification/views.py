@@ -722,6 +722,7 @@ def get_standard_networks():
         ('lenet', 'LeNet'),
         ('alexnet', 'AlexNet'),
         ('googlenet', 'GoogLeNet'),
+        ('resnet50', 'ResNet50'),
     ]
 
 

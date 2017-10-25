@@ -5,7 +5,7 @@ MAINTAINER simon.s.chuang@gmail.com
 
 ARG DIGITS_VERSION=v6.0.1
 ENV DIGITS_VERSION=${DIGITS_VERSION}
-
+ENV DIGITS_JOBS_DIR=/data
 ENV DIGITS_ROOT=/opt/digits
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
