@@ -159,6 +159,23 @@ class ModelForm(Form):
                  "need a bigger batch size for training but it doesn't fit in memory).")
     )
 
+    rampup_lr = utils.forms.FloatField(
+        'Rampup Learning Rate',
+        validators=[
+            validators.NumberRange(min=0),
+            validators.Optional(),
+        ],
+        tooltip=("Base learning rate for warmup")
+    )
+
+    rampup_epoch = utils.forms.IntegerField(
+        'Rampup end epoch',
+        validators=[
+            validators.NumberRange(min=1),
+            validators.Optional(),
+        ],
+        tooltip=("Warmup learning rate until epoch")
+    )
     # Solver types
 
     solver_type = utils.forms.SelectField(

@@ -309,6 +309,8 @@ def create():
                 rms_decay=form.rms_decay.data,
                 shuffle=form.shuffle.data,
                 data_aug=data_aug,
+                rampup_lr=form.rampup_lr.data,
+                rampup_epoch=form.rampup_epoch.data,
             )
             )
 
