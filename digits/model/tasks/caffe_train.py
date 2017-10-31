@@ -457,6 +457,12 @@ class CaffeTrainTask(TrainTask):
         # Non-data layers
         train_val_network.MergeFrom(train_val_layers)
 
+        # FLOAT16 blob
+        train_val_network.default_forward_type = 2  # FLOAT16
+        train_val_network.default_backward_type = 2 # FLOAT16
+        train_val_network.default_forward_math = 2  # FLOAT16
+        train_val_network.default_backward_math = 2 # FLOAT16
+
         # Write to file
         with open(self.path(self.train_val_file), 'w') as outfile:
             text_format.PrintMessage(train_val_network, outfile)
