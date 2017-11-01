@@ -583,7 +583,11 @@ class CaffeTrainTask(TrainTask):
             raise Exception('Unknown lr_policy: "%s"' % solver.lr_policy)
 
         # Warmup / Rampup
+        if not self.rampup_lr:
+            self.rampup_lr = 0
         solver.rampup_lr = self.rampup_lr
+        if not self.rampup_epoch:
+            self.rampup_epoch = 0
         solver.rampup_interval = int(train_iter * self.rampup_epoch)
 
         # These solver types don't support momentum
