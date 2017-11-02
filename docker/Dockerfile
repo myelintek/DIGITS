@@ -11,6 +11,7 @@ ENV DIGITS_ROOT=/opt/digits
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
         graphviz \
+        python-magic \
         python-tk \
         vim && \
     rm -rf /var/lib/apt/lists/*
