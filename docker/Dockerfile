@@ -1,6 +1,6 @@
 # FROM myelintek/nvcaffe:cuda9-cudnn7-v0.16.4
 # FROM myelintek/tensorflow:v1.4.0-rc0
-FROM myelintek/tensorflow:v1.4.0-rc0
+FROM myelintek/nvcaffe:cuda9-cudnn7-nccl2-v0.16
 MAINTAINER simon.s.chuang@gmail.com
 
 
