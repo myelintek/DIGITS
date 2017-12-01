@@ -11,7 +11,6 @@ ENV DIGITS_ROOT=/opt/digits
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
         cython \
-        easydict \
         graphviz \
         python-opencv \
         python-magic \
