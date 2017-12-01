@@ -13,7 +13,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
         cython \
         easydict \
         graphviz \
-        open-opencv \
+        python-opencv \
         python-magic \
         python-tk \
         vim && \
