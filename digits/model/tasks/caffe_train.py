@@ -599,7 +599,10 @@ class CaffeTrainTask(TrainTask):
 
         if solver.solver_type not in unsupported:
             solver.momentum = 0.9
-        solver.weight_decay = solver.base_lr / 100.0
+        if not self.weight_decay:
+            solver.weight_decay = solver.base_lr / 100.0
+        else
+            solver.weight_decay = self.weight_decay
 
         # solver specific values
         if solver.solver_type == solver.RMSPROP:

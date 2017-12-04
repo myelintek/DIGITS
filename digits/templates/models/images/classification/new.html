@@ -183,7 +183,11 @@ $("#dataset").change();
                     </small>
                     {{form.learning_rate(class='form-control learning-rate-option')}}
                 </div>
-
+                <div class="form-group{{mark_errors([form.weight_decay])}}">
+                    {{form.weight_decay.label}}
+                    {{form.weight_decay.tooltip}}
+                    {{form.weight_decay(class='form-control')}}
+                </div>
                 <p>
                 <label class="checkbox-inline">
                     <input id="show-advanced-lr-options" type="checkbox" />

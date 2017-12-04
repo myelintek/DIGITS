@@ -176,6 +176,15 @@ class ModelForm(Form):
         ],
         tooltip=("Warmup learning rate until epoch")
     )
+
+    weight_decay = utils.forms.FloatField(
+        'Weight Decay',
+        validators=[
+            validators.NumberRange(min=0),
+            validators.Optional(),
+        ],
+        tooltip=("weight decay number")
+    )
     # Solver types
 
     solver_type = utils.forms.SelectField(
