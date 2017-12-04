@@ -601,7 +601,7 @@ class CaffeTrainTask(TrainTask):
             solver.momentum = 0.9
         if not self.weight_decay:
             solver.weight_decay = solver.base_lr / 100.0
-        else
+        else:
             solver.weight_decay = self.weight_decay
 
         # solver specific values
