@@ -1,0 +1,50 @@
+FROM nvidia/cuda:8.0-cudnn7-devel-ubuntu14.04
+
+MAINTAINER simon.s.chuang@gmail.com
+
+RUN echo "deb http://developer.download.nvidia.com/compute/machine-learning/repos/ubuntu1404/x86_64 /" > /etc/apt/sources.list.d/nvidia-ml.list && \
+    echo "deb http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1404/x86_64 /" > /etc/apt/sources.list.d/cuda.list && \
+    apt-get update
+
+# BuildDigits.md
+RUN apt-get install -y --no-install-recommends \
+        git graphviz python-dev python-flask \
+        python-flaskext.wtf python-gevent python-h5py \
+        python-pil python-pip \
+        python-tk vim
+
+# BuildCaffe.md
+RUN apt-get install -y --no-install-recommends build-essential \
+        cmake git gfortran libatlas-base-dev \
+        libboost-filesystem-dev libboost-python-dev \
+        libboost-system-dev libboost-thread-dev libgflags-dev \
+        libgoogle-glog-dev libhdf5-serial-dev libleveldb-dev \
+        liblmdb-dev libopencv-dev libsnappy-dev python-all-dev \
+        python-dev python-h5py python-matplotlib \
+        python-opencv python-pil python-pydot \
+        python-skimage python-sklearn
+
+# required by Caffe, Tensorflow
+RUN apt-get install -y libnccl2=2.1.2-1+cuda8.0 libnccl-dev=2.1.2-1+cuda8.0 \
+        cython doxygen wget make
+
+# BuildProtobuf.md
+RUN apt-get install -y autoconf automake libtool curl make g++ git \
+    python-dev python-setuptools unzip
+
+RUN wget -O /opt/protobuf-python-3.2.0.tar.gz https://github.com/google/protobuf/releases/download/v3.2.0/protobuf-python-3.2.0.tar.gz && \
+    tar -zxvf /opt/protobuf-python-3.2.0.tar.gz -C /opt/ && \
+    cd /opt/protobuf-3.2.0 && \
+    ./configure && \
+    make -j"$(nproc)" && \
+    make check && \
+    make install && \
+    ldconfig  && \
+    cd python && \
+    python setup.py install --cpp_implementation
+
+# fix pip install errors
+RUN wget https://bootstrap.pypa.io/get-pip.py && python get-pip.py
+
+# required by Caffe, Digits
+RUN pip install numpy==1.11.0 scipy==0.17.0 dix==1.10.0 matplotlib==1.5.2 h5py==2.6.0 setuptools==20.7.0
