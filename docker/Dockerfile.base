@@ -47,4 +47,4 @@ RUN wget -O /opt/protobuf-python-3.2.0.tar.gz https://github.com/google/protobuf
 RUN wget https://bootstrap.pypa.io/get-pip.py && python get-pip.py
 
 # required by Caffe, Digits
-RUN pip install numpy==1.11.0 scipy==0.17.0 dix==1.10.0 matplotlib==1.5.2 h5py==2.6.0 setuptools==20.7.0
+RUN pip install numpy==1.11.0 scipy==0.17.0 six==1.10.0 matplotlib==1.5.2 h5py==2.6.0 setuptools==20.7.0
