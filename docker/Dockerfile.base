@@ -17,9 +17,10 @@ RUN apt-get install -y --no-install-recommends \
 RUN apt-get install -y --no-install-recommends build-essential \
         cmake git gfortran libatlas-base-dev \
         libboost-filesystem-dev libboost-python-dev \
-        libboost-system-dev libboost-thread-dev libgflags-dev \
-        libgoogle-glog-dev libhdf5-serial-dev libleveldb-dev \
-        liblmdb-dev libopencv-dev libsnappy-dev python-all-dev \
+        libboost-system-dev libboost-thread-dev libboost-regex-dev \
+        libgflags-dev libgoogle-glog-dev libhdf5-serial-dev \
+        libopenblas-dev libleveldb-dev liblmdb-dev \
+        libopencv-dev libsnappy-dev libturbojpeg python-all-dev \
         python-dev python-h5py python-matplotlib \
         python-opencv python-pil python-pydot \
         python-skimage python-sklearn
